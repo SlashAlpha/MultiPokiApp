@@ -28,11 +28,14 @@ public class Player {
     Integer success;
     Integer hoursPlayed;
     Integer bank;
+    Integer score;
 
 
 
 
     ArrayList<Card>playerCards;
 
-
+    public void setScore(Integer score) {
+        this.score = score;
+    }
 }

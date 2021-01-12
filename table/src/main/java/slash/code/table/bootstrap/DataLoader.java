@@ -3,6 +3,7 @@ package slash.code.table.bootstrap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import slash.code.table.Card;
+import slash.code.table.analysis.Analysis;
 import slash.code.table.player.Player;
 import slash.code.table.river.River;
 import slash.code.table.services.PlayerService;
@@ -24,6 +25,7 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        Analysis analysis=new Analysis();
        Player player=Player.builder().id(UUID.randomUUID()).name("Bernard").gamePlayed(0).age(30).playerCards(new ArrayList<Card>()).build();
       playerService.getPlayerCards(player);
 
@@ -34,6 +36,16 @@ public class DataLoader implements CommandLineRunner {
         riverService.getSecondWave(river);
 
         riverService.getThirdWave(river);
+        for (Card c:player.getPlayerCards()
+             ) {analysis.getCards().add(c);
+
+        }
+        for (Card c :river.getRiverCards()
+             ) {analysis.getCards().add(c);
+
+        }
+        analysis.compareCards(analysis.getCards(),player);
+
 
     }
 }

@@ -1,14 +1,11 @@
 package slash.code.table.river;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import slash.code.table.Card;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -18,13 +15,25 @@ import java.util.UUID;
 @Entity
 @Getter
 @Builder
+@Setter
 public class River {
 
     @Id
     @GeneratedValue(generator = "UUID")
     UUID id;
 
-    ArrayList<Card> riverCards;
+    @OneToOne
+    Card one;
+    @OneToOne
+    Card two;
+    @OneToOne
+    Card three;
+    @OneToOne
+    Card four;
+    @OneToOne
+    Card five;
+
+    //  ArrayList<Card> riverCards;
 
 
 }

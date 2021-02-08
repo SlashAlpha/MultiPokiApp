@@ -7,11 +7,9 @@ import slash.code.dealer.cards.Deck;
 @SpringBootApplication
 public class DealerApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DealerApplication.class, args);
+    public static void main(String[] args) {
+        SpringApplication.run(DealerApplication.class, args);
 
-		Deck deck=new Deck();
-		System.out.println(deck.toString());
-	}
+    }
 
 }

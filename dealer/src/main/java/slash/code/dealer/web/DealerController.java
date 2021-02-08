@@ -6,19 +6,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import slash.code.dealer.cards.Card;
 import slash.code.dealer.cards.Deck;
+import slash.code.dealer.services.DeckService;
+import slash.code.dealer.services.DeckServices;
 
 @CrossOrigin("*")
 @RequestMapping("/api/v1/dealer/")
 @RestController
 public class DealerController {
-    Deck deck ;
-    Integer count=0;
+    DeckServices deckServices;
+    Integer count = 0;
 
-
-
-    public DealerController(Deck deck) {
-        this.deck = deck;
+    public DealerController(DeckServices deckService) {
+        this.deckServices = deckService;
     }
+
 
 //    @GetMapping("first")
 //    public String firstWave(){
@@ -53,22 +54,13 @@ public class DealerController {
 //    }
 
 
-    @GetMapping("river/card")
-    public Card getRiverCard(){
+    @GetMapping("card")
+    public Card getCard() {
 
-            Card card=deck.getCards().get(0);
-            deck.getCards().remove(card);
+        Card card = deckServices.getDeck().getCards().get(0);
+        deckServices.getDeck().getCards().remove(card);
 
-            return card;
-
-    }
-    @GetMapping("player/card")
-    public Card getPlayerCard(){
-
-            Card card=deck.getCards().get(0);
-            deck.getCards().remove(card);
-
-            return card;
+        return card;
 
     }
 

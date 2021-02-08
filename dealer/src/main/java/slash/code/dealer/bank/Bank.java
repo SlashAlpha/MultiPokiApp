@@ -1,18 +1,16 @@
 package slash.code.dealer.bank;
 
-import java.util.ArrayList;
-
 public class Bank {
 
-    Integer total;
+    Integer pot;
+    Integer smallBlind;
+    Integer bigBlind;
 
 
     public Bank() {
 
-        this.total=0;
+        this.pot = 0;
     }
-
-
 
 
 }

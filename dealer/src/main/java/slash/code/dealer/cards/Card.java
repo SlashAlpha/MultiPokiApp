@@ -5,28 +5,30 @@ import lombok.AllArgsConstructor;
 
 public class Card {
     final String color;
-    final  Integer value;
-    final  Integer faceVal;
-    final  String description;
+    final Integer value;
+    final Integer faceVal;
+    final String description;
 
 
-    public Card(String color, Integer value,Integer faceVal,String description) {
+    public Card(String color, Integer value, Integer faceVal, String description) {
         this.color = color;
         this.value = value;
-        this.faceVal=faceVal;
-        this.description=description;
+        this.faceVal = faceVal;
+        this.description = description;
 
     }
 
     @Override
     public String toString() {
-        if (description!=""){
-            return description+" of "+color;}
-        else{return value+" of " +color;}
+        if (description != "") {
+            return description + " of " + color;
+        } else {
+            return value + " of " + color;
+        }
     }
 
-    public String stringify(){
-        String card=this.value+"/"+this.color+"/"+this.description+"/"+this.faceVal;
+    public String stringify() {
+        String card = this.value + "/" + this.color + "/" + this.description + "/" + this.faceVal;
         return card;
     }
 

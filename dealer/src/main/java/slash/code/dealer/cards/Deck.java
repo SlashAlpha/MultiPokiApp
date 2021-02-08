@@ -20,12 +20,12 @@ public class Deck {
     Integer count = 0;
     Integer turns = 0;
     private ArrayList<Card> usedCard;
-    StringBuffer sb=new StringBuffer();
+    StringBuffer sb = new StringBuffer();
 
     public Deck() {
         this.cards = new ArrayList<Card>();
         this.cards = initPokerDeck(cards);
-        usedCard=new ArrayList<>();
+        usedCard = new ArrayList<>();
         shuffleCard(1);
 
 
@@ -103,19 +103,20 @@ public class Deck {
 
 
     public String riverFill() {
-        Card cardA=this.getCards().get(0);
-       sb.append(  cardA.value+"//"+cardA.color+"//"+cardA.description+"//"+cardA.faceVal+"//£//");
+        Card cardA = this.getCards().get(0);
+        sb.append(cardA.value + "//" + cardA.color + "//" + cardA.description + "//" + cardA.faceVal + "//£//");
         this.usedCard.add(cardA);
         this.cards.remove(cardA);
-            return sb.toString();}
+        return sb.toString();
+    }
 
 
     @Override
     public String toString() {
-        for (Card card: this.cards){
+        for (Card card : this.cards) {
             System.out.println(card.toString());
         }
-        return "deck has "+this.count+" cards";
+        return "deck has " + this.count + " cards";
     }
 }
 
